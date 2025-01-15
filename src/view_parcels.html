@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр посылок</title>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f9;
+        }}
+        h1 {{
+            color: #333;
+        }}
+        form {{
+            display: inline-block;
+            text-align: left;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }}
+        label {{
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }}
+        input {{
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }}
+        button {{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }}
+        button:hover {{
+            background-color: #45a049;
+        }}
+        table {{
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }}
+        th, td {{
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }}
+        th {{
+            background-color: #f2f2f2;
+        }}
+    </style>
+</head>
+<body>
+    <h1>Просмотр посылок</h1>
+    <form method="get" action="/view_parcels">
+        <label for="start_id">ID начала:</label>
+        <input type="number" id="start_id" name="start_id" min="1" value="1">
+        <label for="end_id">ID конца:</label>
+        <input type="number" id="end_id" name="end_id" min="1" value="10">
+        <button type="submit">Показать</button>
+    </form>
+    <form method="post" action="/update_parcels">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Трек. номер</th>
+                    <th>Статус</th>
+                    <th>Обновлено</th>
+                    <th>Груз</th>
+                </tr>
+            </thead>
+            <tbody>
+                {rows}
+            </tbody>
+        </table>
+        <button type="submit">Подтвердить изменения</button>
+    </form>
+    <div class="back-button">
+        <button onclick="window.location.href='/'">Вернуться на главную</button>
+    </div>
+</body>
+</html>

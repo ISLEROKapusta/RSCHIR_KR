@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить новый элемент</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добавить новый элемент в таблицу посылок</h1>
+    <form action="submit_form.php" method="POST">
+        <!-- Поле для выбора статуса посылки -->
+        <label for="status">Выберите статус:</label>
+        <select id="status" name="status" required>
+            <option value="1">В ожидании</option>
+            <option value="2">В пути</option>
+            <option value="3">Доставлено</option>
+        </select>
+
+        <!-- Поле для ввода груза -->
+        <label for="cargo">Груз:</label>
+        <input type="text" id="cargo" name="cargo" placeholder="Введите описание груза">
+
+        <!-- Кнопка отправки формы -->
+        <button type="submit">Добавить</button>
+    </form>
+
+    <!-- Кнопка для возврата на главную страницу -->
+    <div class="back-button">
+        <button onclick="window.location.href='index.html'">Вернуться на главную</button>
+    </div>
+</body>
+</html>
